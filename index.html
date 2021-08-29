@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+    <title>My Materials</title>
+  </head>
+
+  <body>
+    <header>
+      <h1>My Materials</h1>
+    </header>
+
+    <div class="container">
+      <div id="img-unit">
+      </div>
+    </div>
+
+    <script>
+      let images = [
+        {
+          "path": "img01.jpeg",
+          "name": "name01",
+          "text": "テキスト01"
+        },
+        {
+          "path": "img02.jpeg",
+          "name": "name02",
+          "text": "テキスト02"
+        },
+        {
+          "path": "img03.jpeg",
+          "name": "name03",
+          "text": "テキスト03"
+        }
+      ];
+
+      let img;
+      let text;
+      let div;
+
+      for (let i = 0; i < images.length; i++) {
+        img = document.createElement('img');
+        img.setAttribute('src', images[i].path);
+
+        text = document.createElement('div');
+        text.className = 'inner';
+        text.innerHTML = '<p>' + images[i].text + '<span>' + images[i].name + '</span></p>';
+
+        div = document.createElement('div');
+        div.className = 'material';
+        div.appendChild(img);
+        div.appendChild(text);
+
+        document.getElementById('img-unit').appendChild(div);
+      };
+    </script>
+  </body>
+</html>
